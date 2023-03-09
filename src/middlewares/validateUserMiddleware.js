@@ -1,13 +1,12 @@
 const Joi = require('joi');
 const validateUserSchema= Joi.object({
-    username: Joi.string()
-      .min(5)
-      .max(20)
+    email: Joi.string()
+      .email({ tlds: { allow: false } })
       .required(),
       
     password: Joi.string()
       .min(8)
-      .max(100)
+      .max(20)
       .required()
   });
 exports.validateUser = (req,res,next) => {

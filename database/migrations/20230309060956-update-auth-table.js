@@ -13,7 +13,9 @@ module.exports = {
     await queryInterface.removeColumn('Users','username');
     await queryInterface.addColumn('Users','email',{
       type:Sequelize.STRING,
-        primaryKey:true,
+      primaryKey:true,
+      allowNull:false,
+
     });
     
   },
@@ -31,7 +33,6 @@ module.exports = {
     });
     await queryInterface.addColumn('Users','username',{
       type:Sequelize.STRING,
-      primaryKey:true,
     });
     await queryInterface.removeColumn('Users','email');
   }

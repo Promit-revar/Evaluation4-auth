@@ -1,8 +1,8 @@
 const services = require('../services/authServices');
 exports.addUser = async (req, res) => {
     try{
-        const { username, password } = req.body;
-        const user = await services.addUser({ username, password });
+        const { email, password } = req.body;
+        const user = await services.addUser({ email, password });
         res.status(201).json(user);
     }
     catch(error){
