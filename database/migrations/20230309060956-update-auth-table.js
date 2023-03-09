@@ -12,10 +12,9 @@ module.exports = {
     await queryInterface.removeColumn('Users','id');
     await queryInterface.removeColumn('Users','username');
     await queryInterface.addColumn('Users','email',{
-      type:Sequelize.STRING,
-      primaryKey:true,
-      allowNull:false,
-
+      unique:true,
+      allowNull: false,
+      type:Sequelize.STRING
     });
     
   },

@@ -6,7 +6,12 @@ exports.addUser = async (req, res) => {
         res.status(201).json(user);
     }
     catch(error){
-        res.status(500).json(error);
+        if(error.name === "SequelizeUniqueConstraintError"){
+            res.status(400).json({error:"User already exists",success:"false"});
+        }
+        else{
+        res.status(500).json(error.name);
+        }
     }
 }
 exports.login = async (req, res) => {
