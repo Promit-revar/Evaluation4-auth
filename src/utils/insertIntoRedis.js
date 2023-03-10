@@ -8,6 +8,7 @@ exports.insertIntoRedis = async(token) => {
     },
   };
   //console.log(config,process.env.REDIS_HOST)
+  console.log(config);
   const client = redis.createClient(config);
   await client.connect()
   await client.set(token, 1);
