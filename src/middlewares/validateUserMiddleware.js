@@ -9,7 +9,7 @@ const validateUserSchema= Joi.object({
       .max(20)
       .required()
   });
-exports.validateUser = (req,res,next) => {
+exports.validateUserCreate = (req,res,next) => {
       const { error } = validateUserSchema.validate(req.body);
       if (error) {
         res.status(400).json({ error: error.message })

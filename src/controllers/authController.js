@@ -3,7 +3,7 @@ exports.addUser = async (req, res) => {
     try{
         const { email, password } = req.body;
         const user = await services.addUser({ email, password });
-        res.status(201).json(user);
+        res.status(201).json({data:user,success:true});
     }
     catch(error){
         if(error.name === "SequelizeUniqueConstraintError"){
